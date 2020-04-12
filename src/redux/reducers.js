@@ -1,7 +1,14 @@
 import actions from './actions'
 
 const initialState = {
-  counter: 0,
+  backgroundFetching: false,
+  addresses: [
+    'mgR4uAAekM6ZSecEV8YA9ZYHQvMdqRWdnP',
+    'mmyd1CeSxxPuQB8JXbrgXucG5pP3M5JHGn',
+    'msNRW6K5g5VagPFCyihmX47zE4fh9NoVn3',
+    'mi4BnbVd1TFVrbpaGbimduQirwWBNwKSny',
+    'mgALHtP9CNDbtbYXRdzjj7Lu5D8xBnZxr8',
+  ],
 }
 
 const reducer = (state = initialState, action) => {

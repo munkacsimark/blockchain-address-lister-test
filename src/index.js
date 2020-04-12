@@ -8,6 +8,7 @@ import Header from './containers/header/header'
 import Splash from './pages/splash/splash'
 import Address from './pages/address/address'
 import Transaction from './pages/transaction/transaction'
+import NoPage from './pages/no-page/no-page'
 
 import './index.css'
 
@@ -16,11 +17,11 @@ const Layout = () => {
     <React.StrictMode>
       <BrowserRouter>
         <Provider store={store}>
-          <Header />
           <Switch>
             <Route path='/' exact component={Splash} />
             <Route path='/address/:address' component={Address} />
             <Route path='/transaction/:transaction' component={Transaction} />
+            <Route component={NoPage} />
           </Switch>
         </Provider>
       </BrowserRouter>
