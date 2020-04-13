@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  background-color: var(--navy-light);
+  padding: 20px;
+  border-radius: 5px;
+  border: 3px solid var(--navy-dark);
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: 0.6s;
+}
+
+.container:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.container h3 {
+  word-break: break-all;
+  color: var(--blue);
+}
+
+.container time {
+  color: var(--full-white);
+  font-size: 1.2rem;
+}

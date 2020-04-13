@@ -6,10 +6,12 @@ const sizes = {
   SMALL: 'small',
 }
 
-const Loader = ({ size = sizes.SMALL }) => {
+const Loader = ({ size = sizes.SMALL, className }) => {
   return (
     <span
-      className={`${style.loader} ${size === sizes.BIG ? style.big : ''}`}
+      className={`${style.loader} ${
+        size === sizes.BIG ? style.big : ''
+      } ${className}`}
       role='img'
       aria-label='loader'
     ></span>

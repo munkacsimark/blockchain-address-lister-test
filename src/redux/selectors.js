@@ -4,5 +4,12 @@ const getSelectedAddress = (state) => ({
 })
 const getAddresses = (state) => ({ addresses: state.addresses })
 const getAppHasStarted = (state) => ({ appHasStarted: state.appHasStarted })
+const getTransactions = (state) => ({ transactions: state.transactions })
 
-export { getCounter, getSelectedAddress, getAddresses, getAppHasStarted }
+export {
+  getCounter,
+  getSelectedAddress,
+  getAddresses,
+  getAppHasStarted,
+  getTransactions,
+}

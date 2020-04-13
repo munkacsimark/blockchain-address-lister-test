@@ -2,11 +2,13 @@ const actions = {
   FETCH_ADDRESS: 'fetch-address',
   SAVE_ADDRESS_DATA: 'save-address-data',
   APP_HAS_STARTED: 'app-has-started',
+  SET_SELECTED_ADDRESS: 'set-selected-address',
 }
 
-const fetchAddress = (address) => ({
+const fetchAddress = (addressHash, forceRefresh = false) => ({
   type: actions.FETCH_ADDRESS,
-  address,
+  addressHash,
+  forceRefresh,
 })
 
 const saveAddressData = (data) => ({
@@ -19,5 +21,10 @@ const appHasStarted = (value) => ({
   value,
 })
 
+const setSelectedAddress = (address) => ({
+  type: actions.SET_SELECTED_ADDRESS,
+  address,
+})
+
 export default actions
-export { fetchAddress, saveAddressData, appHasStarted }
+export { fetchAddress, saveAddressData, appHasStarted, setSelectedAddress }

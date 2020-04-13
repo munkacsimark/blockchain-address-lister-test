@@ -3,24 +3,29 @@ import actions, { saveAddressData, appHasStarted } from './actions'
 import { fetchAddress as fetchAddressFromBE } from '../api'
 import { reduceBETransactionsData } from '../helpers'
 
-function* fetchAddress({ address }) {
-  const [{ txs: transactions }] = yield all([
-    call(fetchAddressFromBE, address),
-    delay(2000), // 3sec delay for showing the fancy animation
-  ])
-  const reducedTransactionData = reduceBETransactionsData(transactions)
+function* fetchAddress({ addressHash, forceRefresh }) {
   try {
-    localStorage.setItem(
-      'transactions',
-      JSON.stringify({
-        transactions: reducedTransactionData,
-      })
-    )
+    const savedTransactions = localStorage.getItem(addressHash)
+    if (forceRefresh || savedTransactions === null) {
+      const [{ address, txs: transactions }] = yield all([
+        call(fetchAddressFromBE, addressHash),
+        delay(2000), // 2 sec delay for showing the fancy animation
+      ])
+      const reducedTransactionData = reduceBETransactionsData(transactions)
+      localStorage.setItem(
+        address,
+        JSON.stringify({
+          transactions: reducedTransactionData,
+        })
+      )
+      yield put(saveAddressData(reducedTransactionData))
+    } else {
+      yield put(saveAddressData(JSON.parse(savedTransactions).transactions))
+    }
+    yield put(appHasStarted(true))
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
-  yield put(saveAddressData(reducedTransactionData))
-  yield put(appHasStarted(true))
 }
 
 function* rootSaga() {

@@ -21,12 +21,17 @@ const reducer = (state = initialState, action) => {
     case actions.SAVE_ADDRESS_DATA:
       return {
         ...state,
-        transactions: [...state.transactions, ...action.data],
+        transactions: action.data,
       }
     case actions.APP_HAS_STARTED:
       return {
         ...state,
         appHasStarted: action.value,
+      }
+    case actions.SET_SELECTED_ADDRESS:
+      return {
+        ...state,
+        selectedAddress: action.address,
       }
     default:
       return state
