@@ -6,7 +6,6 @@ import { reduceBETransactionsData } from '../helpers'
 function* fetchAddress({ addressHash }) {
   try {
     const savedTransactions = localStorage.getItem(addressHash)
-    console.log('START: ', 'SAVED: ', !!savedTransactions)
     if (savedTransactions === null) {
       yield put(appHasStarted(false))
       const [{ address, txs: transactions }] = yield all([

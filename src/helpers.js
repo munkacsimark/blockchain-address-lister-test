@@ -38,9 +38,44 @@ const dateToString = (date) => {
 const sortTransactionsByDate = (a, b) =>
   new Date(b.confirmed) - new Date(a.confirmed)
 
+const todayFilter = (transaction) => {
+  const currentTime = Date.now()
+  const confirmedTime = new Date(transaction.confirmed).getTime()
+  return currentTime - confirmedTime <= 86400000
+}
+
+const lastWeekFilter = (transaction) => {
+  const currentTime = Date.now()
+  const confirmedTime = new Date(transaction.confirmed).getTime()
+  return currentTime - confirmedTime <= 604800000
+}
+
+const lastMonthFilter = (transaction) => {
+  const currentTime = Date.now()
+  const confirmedTime = new Date(transaction.confirmed).getTime()
+  return currentTime - confirmedTime <= 2629743000
+}
+
+const lastYearFilter = (transaction) => {
+  const currentTime = Date.now()
+  const confirmedTime = new Date(transaction.confirmed).getTime()
+  return currentTime - confirmedTime <= 31556926000
+}
+
+const otherFilter = (transaction) => {
+  const currentTime = Date.now()
+  const confirmedTime = new Date(transaction.confirmed).getTime()
+  return currentTime - confirmedTime > 31556926000
+}
+
 export {
   reduceBETransactionsData,
   mergeSelectors,
   dateToString,
   sortTransactionsByDate,
+  todayFilter,
+  lastWeekFilter,
+  lastMonthFilter,
+  lastYearFilter,
+  otherFilter,
 }
