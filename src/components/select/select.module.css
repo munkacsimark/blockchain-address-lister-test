@@ -1,0 +1,13 @@
+.select {
+  width: 100%;
+  outline: none;
+  appearance: none;
+  border: 0;
+  background-color: var(--navy-light);
+  color: var(--full-white);
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}

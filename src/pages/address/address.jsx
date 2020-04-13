@@ -22,7 +22,7 @@ const Address = ({ appHasStarted, transactions, history }) => {
 
   return (
     <React.Fragment>
-      <Header title={`Address: ${address}`} />
+      <Header history={history} />
       <div className={style.container}>
         {transactions.sort(sortTransactionsByDate).map((transaction) => (
           <Transaction

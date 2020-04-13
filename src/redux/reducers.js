@@ -9,7 +9,6 @@ const addresses = [
 ]
 
 const initialState = {
-  backgroundFetching: false,
   appHasStarted: false,
   selectedAddress: addresses[0],
   addresses,

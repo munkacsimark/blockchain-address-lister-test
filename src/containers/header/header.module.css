@@ -2,17 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   position: relative;
   top: 0;
   left: 0;
   background-color: var(--navy-dark);
   padding: 20px;
-}
-
-.container h1 {
-  word-break: break-all;
-  margin: 0;
 }
 
 .container button {
@@ -31,4 +26,12 @@
 .container button:hover {
   transform: scale(0.9, 0.9);
   transition: 0.2s;
+}
+
+.selector {
+  display: flex;
+}
+
+.selector span {
+  font-size: 1.2rem;
 }

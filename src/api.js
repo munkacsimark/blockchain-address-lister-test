@@ -10,7 +10,7 @@ const fetchAddress = (hash) =>
       .get(`${DOMAIN}${API}/addrs/${hash}/full?token=${TOKEN}`)
       .then((response) => resolve(response.data))
       .catch((error) => {
-        console.log(error)
+        console.error(error)
         reject(error)
       })
   })
