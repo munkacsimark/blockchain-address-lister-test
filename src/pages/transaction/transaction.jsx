@@ -23,7 +23,7 @@ const Transaction = ({
     if (!appHasStarted) {
       history.push('/')
     }
-  }, [appHasStarted])
+  }, [appHasStarted, history])
 
   const transaction = transactions.find(
     (transaction) => transaction.hash === transactionHash

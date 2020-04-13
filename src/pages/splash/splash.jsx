@@ -9,13 +9,13 @@ import style from './splash.module.css'
 const Splash = ({ selectedAddress, fetchAddress, history, appHasStarted }) => {
   useEffect(() => {
     fetchAddress(selectedAddress)
-  }, [])
+  }, [fetchAddress, selectedAddress])
 
   useEffect(() => {
     if (appHasStarted) {
       history.push(`/address/${selectedAddress}`)
     }
-  }, [appHasStarted])
+  }, [appHasStarted, history, selectedAddress])
 
   return (
     <div className={style.container}>

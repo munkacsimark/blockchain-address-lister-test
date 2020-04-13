@@ -24,7 +24,7 @@ const Address = ({ appHasStarted, transactions, history }) => {
     if (!appHasStarted) {
       history.push('/')
     }
-  }, [appHasStarted])
+  }, [appHasStarted, history, address])
 
   const clickHandler = (hash) => history.push(`/transaction/${hash}`)
   const sortedTransactions = transactions.sort(sortTransactionsByDate)

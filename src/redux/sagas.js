@@ -29,7 +29,7 @@ function* fetchAddress({ addressHash }) {
   }
 }
 
-function* clearStorage({ address }) {
+function clearStorage({ address }) {
   try {
     const savedTransactions = localStorage.getItem(address)
     if (savedTransactions !== null) {
