@@ -1,0 +1,27 @@
+.loader {
+  --border-size: 4px;
+  height: 25px;
+  width: 25px;
+  display: block;
+  border-top: var(--border-size) var(--green) solid;
+  border-right: var(--border-size) var(--red) solid;
+  border-bottom: var(--border-size) var(--blue) solid;
+  border-left: var(--border-size) var(--yellow) solid;
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+}
+
+.loader.big {
+  --border-size: 8px;
+  height: 60px;
+  width: 60px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}

@@ -1,13 +1,30 @@
-import React from 'react'
-import Counter from '../../components/counter'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import Loader, { loaderSizes } from '../../components/loader/loader'
+import { fetchAddress } from '../../redux/actions'
+import { getSelectedAddress, getAppHasStarted } from '../../redux/selectors'
+import { mergeSelectors } from '../../helpers'
+import style from './splash.module.css'
 
-const Splash = () => {
+const Splash = ({ selectedAddress, fetchAddress, history, appHasStarted }) => {
+  useEffect(() => {
+    fetchAddress(selectedAddress)
+  }, [])
+
+  useEffect(() => {
+    if (appHasStarted) {
+      history.push(`/address/${selectedAddress}`)
+    }
+  }, [appHasStarted])
+
   return (
-    <>
-      <h1>SPLASH</h1>
-      <Counter />
-    </>
+    <div className={style.container}>
+      <Loader size={loaderSizes.BIG} />
+      <h2>Loading your experience</h2>
+    </div>
   )
 }
 
-export default Splash
+export default connect(mergeSelectors([getSelectedAddress, getAppHasStarted]), {
+  fetchAddress,
+})(Splash)

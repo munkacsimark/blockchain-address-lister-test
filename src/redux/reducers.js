@@ -1,27 +1,32 @@
 import actions from './actions'
 
+const addresses = [
+  'mgR4uAAekM6ZSecEV8YA9ZYHQvMdqRWdnP',
+  'mmyd1CeSxxPuQB8JXbrgXucG5pP3M5JHGn',
+  'msNRW6K5g5VagPFCyihmX47zE4fh9NoVn3',
+  'mi4BnbVd1TFVrbpaGbimduQirwWBNwKSny',
+  'mgALHtP9CNDbtbYXRdzjj7Lu5D8xBnZxr8',
+]
+
 const initialState = {
   backgroundFetching: false,
-  addresses: [
-    'mgR4uAAekM6ZSecEV8YA9ZYHQvMdqRWdnP',
-    'mmyd1CeSxxPuQB8JXbrgXucG5pP3M5JHGn',
-    'msNRW6K5g5VagPFCyihmX47zE4fh9NoVn3',
-    'mi4BnbVd1TFVrbpaGbimduQirwWBNwKSny',
-    'mgALHtP9CNDbtbYXRdzjj7Lu5D8xBnZxr8',
-  ],
+  appHasStarted: false,
+  selectedAddress: addresses[0],
+  addresses,
+  transactions: [],
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actions.DEC:
+    case actions.SAVE_ADDRESS_DATA:
       return {
         ...state,
-        counter: state.counter - 1,
+        transactions: [...state.transactions, ...action.data],
       }
-    case actions.INC:
+    case actions.APP_HAS_STARTED:
       return {
         ...state,
-        counter: state.counter + 1,
+        appHasStarted: action.value,
       }
     default:
       return state

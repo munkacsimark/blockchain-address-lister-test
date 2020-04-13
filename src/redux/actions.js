@@ -1,20 +1,23 @@
 const actions = {
-  INC: 'INC',
-  DEC: 'DEC',
-  ASYNC_DEC: 'ASYNC_DEC',
+  FETCH_ADDRESS: 'fetch-address',
+  SAVE_ADDRESS_DATA: 'save-address-data',
+  APP_HAS_STARTED: 'app-has-started',
 }
 
-const incrementCounter = () => ({
-  type: actions.INC,
+const fetchAddress = (address) => ({
+  type: actions.FETCH_ADDRESS,
+  address,
 })
 
-const decrementCounter = () => ({
-  type: actions.DEC,
+const saveAddressData = (data) => ({
+  type: actions.SAVE_ADDRESS_DATA,
+  data,
 })
 
-const asyncDecrementCounter = () => ({
-  type: actions.ASYNC_DEC,
+const appHasStarted = (value) => ({
+  type: actions.APP_HAS_STARTED,
+  value,
 })
 
 export default actions
-export { incrementCounter, decrementCounter, asyncDecrementCounter }
+export { fetchAddress, saveAddressData, appHasStarted }
