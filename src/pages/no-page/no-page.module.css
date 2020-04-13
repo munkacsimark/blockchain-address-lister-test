@@ -8,16 +8,16 @@
   text-align: center;
 }
 
-h2,
-h2 > span {
+.container h2,
+.container h2 > span {
   font-size: 2rem;
 }
 
-span {
+.container span {
   font-size: 1.4rem;
 }
 
-time {
+.container time {
   color: var(--full-white);
   font-size: 1.6rem;
 }
