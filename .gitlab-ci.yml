@@ -1,0 +1,17 @@
+image: node:latest
+before_script:
+  - npm ci
+cache:
+  paths:
+    - node_modules/
+pages:
+  stage: deploy
+  script:
+    - npm run build
+    - rm -rf public && mkdir public
+    - mv build/* public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
